@@ -17,3 +17,6 @@
 
             data.append([name, country, kp, imdb] + genre)
 
+
+Полученные данные выводятся в файл _Excel_
+![image](https://user-images.githubusercontent.com/103055346/162056707-931380ab-0792-4112-b439-60fe5a2e3916.png)
