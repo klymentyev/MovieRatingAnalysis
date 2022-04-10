@@ -65,4 +65,10 @@ KruskalResult(statistic=1639.646012402479, pvalue=0.0)
 
 ![image](https://user-images.githubusercontent.com/103055346/162635985-bd5e1cca-7651-487c-925a-d9dd758ba651.png)
 
+Тест Данна для попарного сравнения:
+```
+dp = sp.posthoc_dunn(datarating, val_col = 'rating', group_col = 'Жанр_1', p_adjust = 'hommel') 
+dp.apply(lambda x: x > 0.5).style.highlight_max(color = 'yellowgreen').highlight_min(color='coral') 
+```
 
+![image](https://user-images.githubusercontent.com/103055346/162637087-7d9047c8-24d3-4243-8746-022f45d394c1.png)
