@@ -54,3 +54,15 @@ datarating['rating'] = data['КП'] - data['IMDB']
 stats.normaltest(datarating['rating'])
 NormaltestResult(statistic=3285.1006553280413, pvalue=0.0)
 ```
+Критерий Краскела — Уоллиса для проверки равности распределения:
+```
+groups = []
+for group in list(drg.groups):
+    groups.append(list(drg.get_group(group)['rating'].round(3)))   #создание пожанрового списка рейтингов 
+stats.kruskal(*groups) #непараметрический тест на равность распределений
+KruskalResult(statistic=1639.646012402479, pvalue=0.0)
+```
+
+![image](https://user-images.githubusercontent.com/103055346/162635985-bd5e1cca-7651-487c-925a-d9dd758ba651.png)
+
+
