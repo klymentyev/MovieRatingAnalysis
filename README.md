@@ -35,3 +35,21 @@ import statsmodels.api as sm
 import scipy.stats as stats
 import scikit_posthocs as sp
 ```
+Удаляются фильмы с жанром, общее количество которых меньше 100
+```
+cleardf = list(data['Жанр_1'].value_counts()[data['Жанр_1'].value_counts()<100].index)
+data.query(f'Жанр_1 not in {cleardf}', inplace = True)
+```
+и создается таблица с новой колонкой разности рейтингов 
+```
+datarating = data.get(['Название', 'Жанр_1', 'Страна'])
+datarating['rating'] = data['КП'] - data['IMDB']
+```
+![image](https://user-images.githubusercontent.com/103055346/162632829-f3ca650b-61fd-4669-ae36-1859636decbf.png)
+
+Генеральная совокупность имеет ассиметричное ненормальное распределение: 
+![image](https://user-images.githubusercontent.com/103055346/162634788-b922e36e-5519-4628-ae56-d2990e41182b.png)
+```
+stats.normaltest(datarating['rating'])
+NormaltestResult(statistic=3285.1006553280413, pvalue=0.0)
+```
