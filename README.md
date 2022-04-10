@@ -48,6 +48,7 @@ datarating['rating'] = data['КП'] - data['IMDB']
 ![image](https://user-images.githubusercontent.com/103055346/162632829-f3ca650b-61fd-4669-ae36-1859636decbf.png)
 
 Генеральная совокупность имеет ассиметричное ненормальное распределение: 
+
 ![image](https://user-images.githubusercontent.com/103055346/162634788-b922e36e-5519-4628-ae56-d2990e41182b.png)
 ```
 stats.normaltest(datarating['rating'])
